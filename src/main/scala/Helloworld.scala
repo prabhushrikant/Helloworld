@@ -12,6 +12,10 @@ object Helloworld {
     }
 
     println(rcvdString)
+
+    val res = "Hello" ++ "World !"
+
+    println(res)
   }
 }
 
