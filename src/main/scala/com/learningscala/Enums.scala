@@ -1,6 +1,6 @@
 package com.learningscala
 
-object myEnum extends Enumeration {
+object Enums extends Enumeration {
 
   type myEnum = Value
 
@@ -15,12 +15,12 @@ object myEnum extends Enumeration {
 
   def main(args: Array[String]): Unit = {
 
-    val rainbowColor : myEnum = myEnum.Red
+    val rainbowColor : myEnum = Enums.Red
     println(s"Current color : $rainbowColor")
 
-    myEnum.values.foreach {
-      case c if (c == myEnum.Red || c == myEnum.Green || c == myEnum.Blue) => println(s"$c : Basic Color")
-      case c if (c == myEnum.White) => println(s"$c : Not a rainbow color")
+    Enums.values.foreach {
+      case c if (c == Enums.Red || c == Enums.Green || c == Enums.Blue) => println(s"$c : Basic Color")
+      case c if (c == Enums.White) => println(s"$c : Not a rainbow color")
       case d => println(s"$d : Derived Color")
     }
 
