@@ -35,9 +35,22 @@ object PartialFunction extends App {
   }
 
   val handleOddAndEven = evenNumbers orElse oddNumbers
-  var x = 5
+  val x = 5
   println(s"x: $x, ${handleOddAndEven(x)}")
-  x = 10
-  println(s"x: $x, ${handleOddAndEven(x)}")
+  val x1 = 10
+  println(s"x: $x1, ${handleOddAndEven(x1)}")
 
+  //strangly enough if you apply evenNumbers on a collection Integers via map function
+  //it will error. But the collection.collect() method will work.
+
+  val myInts : Array[Int] = Array.ofDim[Int](5)
+  for (i <- 1 to 5)
+    myInts(i-1) = i
+
+  //errors with : scala.MatchError
+  //myInts.map(k => println(evenNumbers(k)))
+
+  //doesn't error
+  val res = myInts.collect(evenNumbers)
+  res.foreach(println)
 }
